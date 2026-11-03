@@ -1,0 +1,141 @@
+{
+  "project": {
+    "name": "Moodwave",
+    "slug": "my-app",
+    "description": "Local face-emotion recognition with explainable music recommendation",
+    "version": "1.0.0",
+    "language": "zh-CN",
+    "budget": "free-first",
+    "team": "solo"
+  },
+  "stack": {
+    "frontend": {
+      "framework": "Vue 3",
+      "architecture": "SPA built with Vite",
+      "ui": "Element Plus",
+      "state": "Pinia",
+      "router": "vue-router",
+      "i18n": "vue-i18n + server locale packs",
+      "fonts": ["Space Grotesk", "Manrope", "JetBrains Mono"]
+    },
+    "backend": {
+      "language": "Python",
+      "framework": "FastAPI",
+      "protocol": "REST",
+      "validation": "Pydantic v2",
+      "orm": "SQLAlchemy 2"
+    },
+    "data": {
+      "primary": "SQLite (WAL)",
+      "cache": "in-process TTL cache; key convention business:entity:id:version",
+      "rateLimit": "Redis when REDIS_URL is set, otherwise SQLite atomic counters",
+      "files": "local signed direct-upload driver + static media serving"
+    },
+    "security": {
+      "password": "bcrypt with configurable rounds",
+      "tokens": "JWT access 15m + revocable hashed refresh token 7d",
+      "transport": "HTTPS at deployment, HSTS, secure HttpOnly SameSite cookie",
+      "headers": ["CSP", "HSTS", "X-Frame-Options", "Referrer-Policy", "Permissions-Policy"],
+      "input": "parameterized ORM queries, HTML stripping, LIKE escaping, magic-number checks",
+      "rateLimit": "per IP/account endpoints with Retry-After",
+      "idempotency": "10-second request-hash / X-Idempotency-Key middleware for JSON writes"
+    },
+    "deployment": {
+      "container": "multi-stage Dockerfile",
+      "compose": "docker/docker-compose.yml",
+      "platform": "Render Blueprint (Docker)",
+      "ci": "GitHub Actions: pytest + vitest + vite build",
+      "observability": "JSON logs + requestId + client error endpoint + optional Sentry / webhook alerts"
+    }
+  },
+  "algorithms": {
+    "faceEmotion": {
+      "steps": ["YuNet face + 5 landmarks", "crop 64x64 grayscale", "FER+ 8-class ONNX CNN", "mouth-curve / eye-contrast / brow-tension geometry prior", "confidence-adaptive fusion", "map to 6 labels and normalize"],
+      "labels": ["happy", "sad", "angry", "surprised", "fear", "neutral"],
+      "privacy": "decoded and inferred in-process only; images are not persisted or sent to third parties",
+      "models": [
+        "backend/data/face_detection_yunet_2023mar.onnx",
+        "backend/data/emotion-ferplus-8.onnx"
+      ]
+    },
+    "musicEmotion": {
+      "features": ["BPM via energy-envelope autocorrelation", "RMS energy", "spectral centroid", "chroma", "Krumhansl major/minor profiles", "zero-crossing rate", "dynamic range"],
+      "mapping": "valence = f(mode, brightness, roughness, dynamics); arousal = f(BPM, energy, brightness)",
+      "fallback": "iTunes online tracks use mood query + genre metadata and are labelled as metadata matches"
+    },
+    "recommendation": {
+      "formula": "score = 0.42*P(emotion) + 0.28*affinity + 0.12*preference + 0.10*novelty + 0.08*popularity",
+      "rerank": "MMR diversity, maximum two tracks per artist",
+      "feedback": "favorites and like/dislike become a user taste vector; disliked tracks are excluded",
+      "explanation": "every recommendation returns a server-composed reason from BPM, mode, valence and arousal"
+    }
+  },
+  "features": [
+    {"id": 1, "name": "Email/password auth", "priority": "P0", "files": ["backend/app/routers/auth.py", "src/pages/auth/LoginPage.vue", "src/pages/auth/RegisterPage.vue"]},
+    {"id": 2, "name": "Profile and avatar", "priority": "P0", "files": ["backend/app/routers/users.py", "src/pages/settings/ProfileSettingsPage.vue"]},
+    {"id": 3, "name": "RBAC", "priority": "P0", "files": ["backend/app/security.py", "backend/app/routers/admin.py"]},
+    {"id": 4, "name": "Image and media upload", "priority": "P0", "files": ["backend/app/services/storage.py", "backend/app/routers/uploads.py", "src/utils/image.js"]},
+    {"id": 5, "name": "Categories and tags", "priority": "P0", "files": ["backend/app/routers/content.py", "src/pages/CategoryPage.vue", "src/pages/TagPage.vue"]},
+    {"id": 6, "name": "Full-text search", "priority": "P0", "files": ["backend/app/routers/content.py", "src/pages/SearchPage.vue"]},
+    {"id": 7, "name": "Notification centre", "priority": "P0", "files": ["backend/app/routers/social.py", "src/pages/NotificationsPage.vue"]},
+    {"id": 8, "name": "Admin console", "priority": "P0", "files": ["backend/app/routers/admin.py", "src/components/admin/AdminLayout.vue", "src/pages/admin"]},
+    {"id": 9, "name": "Presigned direct upload", "priority": "P0", "files": ["backend/app/services/storage.py", "backend/app/routers/uploads.py"]},
+    {"id": 10, "name": "Rate limiting and idempotency", "priority": "P0", "files": ["backend/app/services/ratelimit.py", "backend/app/middleware.py"]},
+    {"id": 11, "name": "Structured logging and error monitoring", "priority": "P0", "files": ["backend/app/logging_config.py", "backend/app/errors.py", "src/utils/errorReporter.js"]},
+    {"id": 12, "name": "Seed data and demo accounts", "priority": "P0", "files": ["backend/app/seed.py", "database/seeds/seed.py"]},
+    {"id": 13, "name": "Email/SMS verification codes", "priority": "P1", "files": ["backend/app/routers/auth.py", "src/pages/settings/SecuritySettingsPage.vue"]},
+    {"id": 14, "name": "OAuth login", "priority": "P1", "files": ["backend/app/routers/auth.py"]},
+    {"id": 15, "name": "Forgot/reset password", "priority": "P1", "files": ["backend/app/routers/auth.py", "src/pages/auth/ForgotPasswordPage.vue"]},
+    {"id": 16, "name": "Session/device management", "priority": "P1", "files": ["backend/app/routers/auth.py", "src/pages/settings/SecuritySettingsPage.vue"]},
+    {"id": 17, "name": "Internationalisation", "priority": "P1", "files": ["src/i18n", "backend/app/routers/social.py"]},
+    {"id": 18, "name": "Share links and Open Graph", "priority": "P1", "files": ["backend/app/routers/social.py", "src/pages/SharePage.vue"]},
+    {"id": 19, "name": "Email delivery", "priority": "P1", "files": ["backend/app/services/mailer.py", "backend/app/templates/email"]},
+    {"id": 20, "name": "Reports and CSV", "priority": "P1", "files": ["backend/app/routers/reports.py", "src/pages/admin/AdminReportsPage.vue"]},
+    {"id": 21, "name": "Feedback tickets", "priority": "P1", "files": ["backend/app/routers/social.py", "backend/app/routers/admin.py", "src/pages/FeedbackPage.vue"]},
+    {"id": 22, "name": "Cache layer", "priority": "P1", "files": ["backend/app/services/cache.py"]},
+    {"id": 23, "name": "Analytics events, funnels, retention", "priority": "P1", "files": ["backend/app/routers/analytics.py", "src/utils/track.js", "src/pages/admin/AdminAnalyticsPage.vue"]},
+    {"id": 24, "name": "Multi-channel push", "priority": "P1", "files": ["backend/app/routers/admin.py", "src/pages/settings/NotificationSettingsPage.vue"]},
+    {"id": 25, "name": "Invite codes and approval", "priority": "P2", "files": ["backend/app/seed.py", "src/pages/PendingPage.vue", "src/pages/admin/AdminUsersPage.vue"]},
+    {"id": 26, "name": "SMS notifications", "priority": "P2", "files": ["backend/app/routers/auth.py"]},
+    {"id": 27, "name": "Banners and operations", "priority": "P2", "files": ["backend/app/routers/social.py", "src/pages/admin/AdminDashboardPage.vue"]}
+  ],
+  "api": {
+    "prefix": "/api/v1",
+    "operationCount": 98,
+    "envelope": {"code": 0, "message": "ok", "data": {}},
+    "auth": ["POST /auth/register", "POST /auth/login", "POST /auth/refresh", "POST /auth/logout", "GET /auth/me", "GET /auth/sessions"],
+    "core": ["/items", "/categories", "/tags", "/search", "/notifications", "/music/recommendations", "/emotion/analyze", "/upload/presign", "/attachments", "/shares"],
+    "admin": ["/admin/users", "/admin/stats", "/admin/feedback", "/admin/banners", "/admin/push/send", "/admin/emails/test", "/admin/analytics/funnel", "/reports/:type"],
+    "docs": "/api/docs"
+  },
+  "data": {
+    "baseTables": ["users", "items", "refresh_tokens", "roles", "user_roles", "attachments", "categories", "tags", "post_tags", "search_logs", "notifications", "verify_codes", "o_auth_accounts", "password_resets", "share_links", "email_logs", "feedbacks", "events", "event_defs", "funnels", "push_channels", "user_push_settings", "push_tasks", "invite_codes", "sms_logs", "banners"],
+    "extensions": ["tracks", "emotion_logs", "track_feedback", "favorite_tracks", "recommendation_logs", "notification_archive", "event_archive", "daily_metrics", "idempotency_keys", "rate_limit_counters", "client_logs", "audit_logs", "oauth_states"],
+    "schemaFile": "database/migrations/001_init.sql",
+    "softDelete": "items.deleted_at",
+    "money": "integer cents if extended; no monetary field in current product scope",
+    "notes": [
+      "sms_logs.phone unique constraint from generated DDL was corrected to a normal index",
+      "o_auth_accounts.provider_user_id stays BIGINT for schema compatibility; provider_uid VARCHAR stores openid",
+      "banners.position stays INTEGER and position_code stores API names"
+    ]
+  },
+  "pages": [
+    "/", "/login", "/register", "/forgot-password", "/pending", "/discover", "/algorithms", "/search",
+    "/items/new", "/items/:id", "/me", "/categories/:slug", "/tags/:slug", "/notifications", "/feedback",
+    "/settings/profile", "/settings/security", "/settings/notifications", "/s/:code",
+    "/admin", "/admin/users", "/admin/feedback", "/admin/reports", "/admin/analytics"
+  ],
+  "tests": {
+    "backend": "backend/tests/test_api.py (10 tests, isolated SQLite)",
+    "frontend": "tests/frontend/format.test.js (4 tests)",
+    "ci": ".github/workflows/ci.yml"
+  },
+  "deviationsAndDecisions": [
+    "The UI is a Vue 3 SPA because the locked stack supersedes the suggested React-like directory skeleton in section 9.",
+    "The cache is in-process TTL as required by the locked stack; the rate limiter supports optional Redis and SQLite fallback so local/free deployment works without infrastructure.",
+    "Local disk is used as the object-store driver because the locked stack requires local disk plus static serving; the upload path still uses signed direct upload and server verification.",
+    "A small number of visual operational strings are English/Chinese decorative labels; primary interface copy is provided by zh-CN/en-US language packs.",
+    "Render free plan has ephemeral disk; persistence requires a paid disk or database migration."
+  ]
+}

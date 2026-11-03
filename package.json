@@ -1,0 +1,33 @@
+{
+  "name": "moodwave-my-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Moodwave · 基于本地人脸情绪识别的歌曲推荐系统",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@fontsource-variable/manrope": "^5.1.1",
+    "@fontsource-variable/space-grotesk": "^5.1.1",
+    "@fontsource/jetbrains-mono": "^5.1.2",
+    "axios": "^1.7.9",
+    "element-plus": "^2.9.3",
+    "pinia": "^2.3.0",
+    "vue": "^3.5.13",
+    "vue-i18n": "^10.0.5",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

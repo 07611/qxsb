@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+<defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5B5BD6"/><stop offset="1" stop-color="#E8552F"/></linearGradient></defs>
+<rect width="1200" height="600" fill="#FBFAF7"/><circle cx="900" cy="180" r="250" fill="url(#a)" opacity=".18"/><path d="M80 390c90-180 130 80 230-60s160 40 260-60 140 90 230-20 120 30 220-30" fill="none" stroke="url(#a)" stroke-width="3"/>
+<text x="80" y="240" font-family="Georgia,serif" font-size="58" fill="#1A1A1C">让旋律回应此刻的表情</text><text x="82" y="292" font-family="monospace" font-size="16" letter-spacing="5" fill="#6B6B72">MOODWAVE / 心绪声场</text>
+</svg>

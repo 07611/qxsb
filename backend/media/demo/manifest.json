@@ -1,0 +1,62 @@
+[
+  {
+    "id": "happy",
+    "emotion": "happy",
+    "label": "愉悦",
+    "title": "笑到眼睛弯起来",
+    "file": "happy.jpg",
+    "credit": "Demo portrait · Rawpixel editorial preview",
+    "sourceUrl": "https://images.rawpixel.com/image_social_portrait/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAxL3Jhd3BpeGVsX29mZmljZV8zMV9ibGFjay1hbmQtd2hpdGVfZWRpdG9yaWFsX3BvcnRyYWl0X29mX2Ffc21pbGluZ193b21hbl8xXzEuanBn.jpg",
+    "hint": "眼角收紧、嘴角明显上扬，适合观察「愉悦」的高置信度特征。"
+  },
+  {
+    "id": "sad",
+    "emotion": "sad",
+    "label": "低落",
+    "title": "压在眉间的雨",
+    "file": "sad.jpg",
+    "credit": "Demo portrait · Rawpixel editorial preview",
+    "sourceUrl": "https://images.rawpixel.com/image_social_landscape/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI1LTA0L3NyLWltYWdlLTA3MDQyMDI1LXdzYWYwMS1zLTEzNV8xLmpwZw.jpg",
+    "hint": "眉眼低垂、嘴角下沉。低照度照片仍能被 Haar 检测捕获。"
+  },
+  {
+    "id": "angry",
+    "emotion": "angry",
+    "label": "愤怒",
+    "title": "鼓起的脸颊与皱起的眉",
+    "file": "angry.jpg",
+    "credit": "Demo portrait · E2Say editorial preview",
+    "sourceUrl": "https://cdn-website.e2say.com/Resource/Upload/2018-06-14/Article/636645984532097.jpg",
+    "hint": "皱眉、抿嘴与收紧的下颌，共同构成愤怒的低唤醒版本。"
+  },
+  {
+    "id": "surprised",
+    "emotion": "surprised",
+    "label": "惊喜",
+    "title": "一秒睁大的眼睛",
+    "file": "surprised.jpg",
+    "credit": "Demo portrait · Rawpixel editorial preview",
+    "sourceUrl": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA5L2Rlc2lnbndpdGhtZTA5X2Ffd29tYW5fbWFraW5nX2Ffc3VycHJpc2VkX2ZhY2VfYW5kX2NvdmVyaW5nX2hlcl8yNzg3ZDNiOC1lZmRhLTQwODItODk2Mi0wYWU5MmFhNzM4MDIuanBn.jpg",
+    "hint": "眼睛睁大、嘴巴张开，几何先验与 CNN 都会给出高唤醒判断。"
+  },
+  {
+    "id": "fear",
+    "emotion": "fear",
+    "label": "不安",
+    "title": "咬住手指的恐惧",
+    "file": "fear.jpg",
+    "credit": "Demo portrait · All That Is Interesting editorial preview",
+    "sourceUrl": "https://allthatsinteresting.com/wordpress/wp-content/uploads/2018/06/fearful-man.jpg",
+    "hint": "睁大的眼睛与遮住嘴部的手，是恐惧中典型的自我保护动作。"
+  },
+  {
+    "id": "neutral",
+    "emotion": "neutral",
+    "label": "平静",
+    "title": "没有表情的下午",
+    "file": "neutral.jpg",
+    "credit": "Demo portrait · Pexels #614810",
+    "sourceUrl": "https://www.pexels.com/photo/man-in-black-crew-neck-shirt-614810/",
+    "hint": "面部肌肉放松、嘴角接近水平，是中性情绪的基线样本。"
+  }
+]

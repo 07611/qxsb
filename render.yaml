@@ -1,0 +1,33 @@
+﻿services:
+  - type: web
+    name: moodwave
+    runtime: docker
+    plan: free
+    dockerfilePath: ./docker/Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: AUTO_SEED
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite:////app/backend/data/moodwave.db
+      - key: MEDIA_ROOT
+        value: /app/backend/media
+      - key: EXPOSE_DEV_RESET_LINK
+        value: "false"
+      - key: ENABLE_ONLINE_MUSIC
+        value: "true"
+

@@ -1,0 +1,217 @@
+情绪识别/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── backend/
+│   ├── app/
+│   │   ├── locales/
+│   │   │   ├── en-US.json
+│   │   │   └── zh-CN.json
+│   │   ├── routers/
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── analytics.py
+│   │   │   ├── auth.py
+│   │   │   ├── content.py
+│   │   │   ├── music.py
+│   │   │   ├── reports.py
+│   │   │   ├── social.py
+│   │   │   ├── uploads.py
+│   │   │   └── users.py
+│   │   ├── services/
+│   │   │   ├── __init__.py
+│   │   │   ├── alerting.py
+│   │   │   ├── analytics.py
+│   │   │   ├── audio.py
+│   │   │   ├── cache.py
+│   │   │   ├── emotion.py
+│   │   │   ├── mailer.py
+│   │   │   ├── notify.py
+│   │   │   ├── ratelimit.py
+│   │   │   ├── recommendation.py
+│   │   │   └── storage.py
+│   │   ├── templates/
+│   │   │   └── email/
+│   │   │       ├── feedback_reply.html
+│   │   │       ├── password_reset.html
+│   │   │       ├── push_notice.html
+│   │   │       ├── test.html
+│   │   │       ├── verify_code.html
+│   │   │       └── welcome.html
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── errors.py
+│   │   ├── logging_config.py
+│   │   ├── main.py
+│   │   ├── middleware.py
+│   │   ├── models.py
+│   │   ├── security.py
+│   │   ├── seed.py
+│   │   ├── serializers.py
+│   │   └── utils.py
+│   ├── data/
+│   │   ├── emotion-ferplus-8.onnx
+│   │   └── face_detection_yunet_2023mar.onnx
+│   ├── media/
+│   │   ├── audio/
+│   │   │   ├── electric-bloom.wav
+│   │   │   ├── hover.wav
+│   │   │   ├── lemon-static.wav
+│   │   │   ├── little-spark.wav
+│   │   │   ├── morning-drift.wav
+│   │   │   ├── rain-window.wav
+│   │   │   ├── red-shift.wav
+│   │   │   ├── slow-cafe.wav
+│   │   │   ├── still-water.wav
+│   │   │   ├── undertow.wav
+│   │   │   ├── unsent-letter.wav
+│   │   │   └── white-noise-cafe.wav
+│   │   ├── banners/
+│   │   │   ├── avatar-admin.svg
+│   │   │   ├── banner-arch.svg
+│   │   │   ├── banner-hero.svg
+│   │   │   ├── banner-night.svg
+│   │   │   └── share-default.svg
+│   │   ├── covers/
+│   │   │   ├── electric-bloom.svg
+│   │   │   ├── hover.svg
+│   │   │   ├── lemon-static.svg
+│   │   │   ├── little-spark.svg
+│   │   │   ├── morning-drift.svg
+│   │   │   ├── rain-window.svg
+│   │   │   ├── red-shift.svg
+│   │   │   ├── slow-cafe.svg
+│   │   │   ├── still-water.svg
+│   │   │   ├── undertow.svg
+│   │   │   ├── unsent-letter.svg
+│   │   │   └── white-noise-cafe.svg
+│   │   ├── demo/
+│   │   │   ├── angry.jpg
+│   │   │   ├── fear.jpg
+│   │   │   ├── happy.jpg
+│   │   │   ├── manifest.json
+│   │   │   ├── neutral.jpg
+│   │   │   ├── sad.jpg
+│   │   │   └── surprised.jpg
+│   │   └── tracks.json
+│   ├── scripts/
+│   │   └── generate_assets.py
+│   ├── tests/
+│   │   └── conftest.py
+│   └── requirements.txt
+├── database/
+│   ├── migrations/
+│   │   └── 001_init.sql
+│   └── seeds/
+│       └── seed.py
+├── docker/
+│   ├── docker-compose.yml
+│   └── Dockerfile
+├── docs/
+│   ├── algorithms.md
+│   ├── architecture.json
+│   ├── ATTRIBUTIONS.md
+│   └── prompt.md
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   ├── admin/
+│   │   │   └── AdminLayout.vue
+│   │   ├── auth/
+│   │   │   └── AuthShell.vue
+│   │   ├── content/
+│   │   │   ├── ArchiveView.vue
+│   │   │   ├── ImageUploader.vue
+│   │   │   └── PostCard.vue
+│   │   ├── emotion/
+│   │   │   ├── EmotionDial.vue
+│   │   │   └── EmotionScanner.vue
+│   │   ├── layout/
+│   │   │   ├── AppFooter.vue
+│   │   │   ├── AppHeader.vue
+│   │   │   └── MobileTabBar.vue
+│   │   ├── player/
+│   │   │   └── PlayerBar.vue
+│   │   ├── recommendation/
+│   │   │   ├── RecommendationPanel.vue
+│   │   │   └── TrackRow.vue
+│   │   ├── settings/
+│   │   │   ├── SettingsLayout.vue
+│   │   │   └── SettingsNav.vue
+│   │   └── ui/
+│   │       ├── AppErrorBoundary.vue
+│   │       ├── AsyncState.vue
+│   │       ├── BootSplash.vue
+│   │       └── PageHeader.vue
+│   ├── hooks/
+│   │   └── useAsync.js
+│   ├── i18n/
+│   │   ├── en-US.js
+│   │   ├── index.js
+│   │   └── zh-CN.js
+│   ├── pages/
+│   │   ├── admin/
+│   │   │   ├── AdminAnalyticsPage.vue
+│   │   │   ├── AdminDashboardPage.vue
+│   │   │   ├── AdminFeedbackPage.vue
+│   │   │   ├── AdminReportsPage.vue
+│   │   │   └── AdminUsersPage.vue
+│   │   ├── auth/
+│   │   │   ├── ForgotPasswordPage.vue
+│   │   │   ├── LoginPage.vue
+│   │   │   └── RegisterPage.vue
+│   │   ├── settings/
+│   │   │   ├── NotificationSettingsPage.vue
+│   │   │   ├── ProfileSettingsPage.vue
+│   │   │   └── SecuritySettingsPage.vue
+│   │   ├── AlgorithmsPage.vue
+│   │   ├── CategoryPage.vue
+│   │   ├── DiscoverPage.vue
+│   │   ├── FeedbackPage.vue
+│   │   ├── HomePage.vue
+│   │   ├── ItemDetailPage.vue
+│   │   ├── ItemEditorPage.vue
+│   │   ├── MePage.vue
+│   │   ├── NotFoundPage.vue
+│   │   ├── NotificationsPage.vue
+│   │   ├── PendingPage.vue
+│   │   ├── SearchPage.vue
+│   │   ├── SharePage.vue
+│   │   └── TagPage.vue
+│   ├── router/
+│   │   └── index.js
+│   ├── services/
+│   │   ├── api.js
+│   │   └── http.js
+│   ├── stores/
+│   │   ├── auth.js
+│   │   ├── emotion.js
+│   │   ├── notifications.js
+│   │   ├── player.js
+│   │   └── ui.js
+│   ├── styles/
+│   │   ├── base.css
+│   │   ├── element.css
+│   │   └── tokens.css
+│   ├── utils/
+│   │   ├── errorReporter.js
+│   │   ├── format.js
+│   │   ├── image.js
+│   │   └── track.js
+│   ├── App.vue
+│   └── main.js
+├── tests/
+│   └── frontend/
+│       └── format.test.js
+├── .dockerignore
+├── .env.example
+├── .gitignore
+├── index.html
+├── package-lock.json
+├── package.json
+├── pytest.ini
+├── README.md
+├── render.yaml
+└── vite.config.js

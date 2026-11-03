@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "title": "Moodwave · Emotional Soundscape",
+    "description": "On-device face emotion recognition with explainable music recommendations"
+  },
+  "nav": {
+    "home": "Home",
+    "discover": "Discover",
+    "algorithms": "How it works",
+    "notifications": "Notifications",
+    "admin": "Admin",
+    "settings": "Settings",
+    "login": "Sign in",
+    "register": "Create account",
+    "logout": "Sign out"
+  },
+  "common": {
+    "retry": "Retry",
+    "loading": "Loading",
+    "empty": "Nothing here yet",
+    "error": "Something went wrong. Try again.",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "search": "Search",
+    "more": "View more"
+  },
+  "errors": {
+    "network": "Network unavailable. Check your connection and retry.",
+    "unauthorized": "Please sign in first",
+    "forbidden": "You do not have permission",
+    "notFound": "Page or content not found"
+  }
+}

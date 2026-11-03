@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3A43B"/><stop offset=".55" stop-color="#E8552F"/><stop offset="1" stop-color="#15151A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".3" cy=".2" r=".75">
+      <stop offset="0" stop-color="#FFE8A8" stop-opacity=".72"/><stop offset="1" stop-color="#FFE8A8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#g)"/>
+  <rect width="800" height="800" fill="url(#glow)"/>
+  <g opacity=".52" filter="url(#blur)">
+    <circle cx="268" cy="530" r="122" fill="#FFE8A8" opacity=".4"/>
+    <circle cx="574" cy="284" r="92" fill="#F3A43B" opacity=".35"/>
+  </g>
+  <g fill="none" stroke="#FFE8A8" stroke-opacity=".48" stroke-width="2">
+    <path d="M60 432 C 190 316, 310 536, 440 438 S 680 322, 750 424"/>
+    <path d="M40 488 C 200 596, 390 352, 540 434 S 720 528, 780 442" stroke-opacity=".22"/>
+  </g>
+  <g font-family="Georgia, serif" fill="#fff">
+    <text x="62" y="92" font-size="17" letter-spacing="7" opacity=".7">MOODWAVE / HAPPY</text>
+    <text x="62" y="680" font-size="62" opacity=".96">柠檬气泡</text>
+    <text x="64" y="724" font-size="22" opacity=".65">Lemon Static — Soft Relay</text>
+  </g>
+  <rect x="62" y="592" width="46" height="4" rx="2" fill="#FFE8A8" opacity=".8"/>
+</svg>

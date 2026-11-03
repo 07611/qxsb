@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install backend dependencies
+        run: pip install -r backend/requirements.txt
+      - name: Compile check
+        run: python -m compileall -q backend/app
+      - name: Test API
+        env:
+          APP_ENV: test
+          DEBUG: "true"
+          AUTO_SEED: "true"
+          DATABASE_URL: sqlite:///./backend/data/ci_moodwave.db
+          JWT_SECRET: ci-only-secret-ci-only-secret-ci-only-secret-ci-only-secret
+          SEED_ADMIN_PASSWORD: Admin@12345
+          SEED_USER_PASSWORD: Demo@12345
+          EXPOSE_DEV_RESET_LINK: "false"
+        run: pytest backend/tests -q
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install frontend dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Unit tests
+        run: npm test -- --run
+      - name: Production build
+        run: npm run build

@@ -1,0 +1,39 @@
+services:
+  moodwave:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: moodwave:latest
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    environment:
+      APP_ENV: production
+      DEBUG: "false"
+      COOKIE_SECURE: "false" # 本地 compose 无 TLS；上线 Render 会设置 true
+      PUBLIC_BASE_URL: http://localhost:8000
+      FRONTEND_ORIGIN: http://localhost:8000,http://127.0.0.1:8000
+      DATABASE_URL: sqlite:////app/backend/data/moodwave.db
+      MEDIA_ROOT: /app/backend/media
+      EXPOSE_DEV_RESET_LINK: "false"
+    volumes:
+      - moodwave-data:/app/backend/data
+      - moodwave-uploads:/app/backend/media/uploads
+      - moodwave-thumbs:/app/backend/media/thumbs
+      - moodwave-avatars:/app/backend/media/avatars
+      - moodwave-logs:/app/backend/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  moodwave-data:
+  moodwave-uploads:
+  moodwave-thumbs:
+  moodwave-avatars:
+  moodwave-logs:

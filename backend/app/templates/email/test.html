@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN">
+  <body style="margin:0;padding:32px;background:#FBFAF7;font-family:Manrope,'PingFang SC','Microsoft YaHei',sans-serif;color:#1A1A1C">
+    <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #E7E4DC;border-radius:10px;padding:36px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.16em;color:#6B6B72">MOODWAVE · 工程通知</div>
+      <h1 style="font-size:24px;line-height:1.3;margin:20px 0 12px">邮件通道测试</h1>
+      <p style="font-size:16px;line-height:1.7;color:#6B6B72">管理员 {{ nickname }} 发起了通道测试。若你看到这封邮件，说明当前 SMTP 配置可以正常送达。</p>
+      <p style="font-size:16px;line-height:1.7">SMTP 已配置：<strong>{{ '是' if smtpEnabled else '否（本地 outbox 模式）' }}</strong></p>
+      <p style="font-size:13px;color:#9A9890">发送时间：{{ sentAt }}</p>
+    </div>
+  </body>
+</html>

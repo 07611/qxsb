@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500">
+<defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6F3EA"/><stop offset=".55" stop-color="#E8E4F5"/><stop offset="1" stop-color="#F5DED3"/></linearGradient><radialGradient id="b" cx=".75" cy=".2" r=".6"><stop stop-color="#5B5BD6" stop-opacity=".28"/><stop offset="1" stop-color="#5B5BD6" stop-opacity="0"/></radialGradient></defs>
+<rect width="1600" height="500" fill="url(#a)"/><rect width="1600" height="500" fill="url(#b)"/>
+<g fill="none" stroke="#5B5BD6" stroke-opacity=".35"><path d="M850 320c80-180 130 160 210-20s170 40 260-80 160 80 240-50" stroke-width="2"/><path d="M850 360c90-140 140 120 220-30s160 20 250-90 150 60 230-20" stroke-width="1"/></g>
+<circle cx="1260" cy="250" r="150" fill="#fff" opacity=".28"/><circle cx="1310" cy="210" r="80" fill="#fff" opacity=".35"/>
+<text x="80" y="220" font-family="Georgia,serif" font-size="62" fill="#1A1A1C">让旋律回应此刻的表情</text>
+<text x="82" y="272" font-family="Arial,sans-serif" font-size="20" fill="#6B6B72">本地人脸情绪识别 · Krumhansl 曲调分析 · 可解释推荐</text>
+<text x="82" y="326" font-family="monospace" font-size="13" letter-spacing="5" fill="#5B5BD6">MOODWAVE / EMOTION TO SOUND</text>
+</svg>

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "title": "Moodwave · 心绪声场",
+    "description": "本地人脸情绪识别 × 可解释音乐推荐"
+  },
+  "nav": {
+    "home": "首页",
+    "discover": "发现",
+    "algorithms": "算法说明",
+    "notifications": "通知",
+    "admin": "管理后台",
+    "settings": "设置",
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出登录"
+  },
+  "common": {
+    "retry": "重试",
+    "loading": "正在加载",
+    "empty": "这里还没有内容",
+    "error": "加载失败，请稍后再试",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "search": "搜索",
+    "more": "查看更多"
+  },
+  "errors": {
+    "network": "网络连接失败，请检查网络后重试",
+    "unauthorized": "请先登录",
+    "forbidden": "你没有执行此操作的权限",
+    "notFound": "页面或内容不存在"
+  }
+}

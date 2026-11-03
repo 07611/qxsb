@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500">
+<defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#122D30"/><stop offset="1" stop-color="#334D45"/></linearGradient><radialGradient id="b" cx=".2" cy=".4" r=".5"><stop stop-color="#9BD6C8" stop-opacity=".3"/><stop offset="1" stop-color="#9BD6C8" stop-opacity="0"/></radialGradient></defs>
+<rect width="1600" height="500" fill="url(#a)"/><rect width="1600" height="500" fill="url(#b)"/>
+<g stroke="#CDE7E2" stroke-opacity=".25" fill="none"><path d="M0 350c140 0 140-90 280-90s140 110 280 110 140-160 280-160 140 120 280 120 140-60 260-60 140 30 220 20"/><path d="M0 390c140 0 140-90 280-90s140 110 280 110 140-160 280-160 140 120 280 120 140-60 260-60 140 30 220 20" stroke-opacity=".1"/></g>
+<text x="80" y="220" font-family="Georgia,serif" font-size="58" fill="#F3F0E8">夜晚的更慢一些</text>
+<text x="82" y="274" font-family="Arial,sans-serif" font-size="20" fill="#B9CDC7">夜间模式与低唤醒歌单，留给那些不想被打扰的时刻。</text>
+</svg>

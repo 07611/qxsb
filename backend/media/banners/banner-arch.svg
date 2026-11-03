@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500">
+<defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1D1D24"/><stop offset="1" stop-color="#3A3430"/></linearGradient></defs>
+<rect width="1600" height="500" fill="url(#a)"/><path d="M0 430C260 280 390 180 710 260s470 210 890 40v200H0z" fill="#E8552F" opacity=".18"/>
+<g fill="none" stroke="#FBFAF7" stroke-opacity=".4"><circle cx="1120" cy="250" r="130"/><circle cx="1120" cy="250" r="96"/><circle cx="1120" cy="250" r="62"/></g>
+<text x="80" y="220" font-family="Georgia,serif" font-size="58" fill="#FBFAF7">六种情绪，六条声场路径</text>
+<text x="82" y="274" font-family="Arial,sans-serif" font-size="20" fill="#C9C4BA">从表情到曲调，每一个推荐理由都可以被解释。</text>
+</svg>
